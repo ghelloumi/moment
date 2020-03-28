@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import './styles/App.scss';
+import {getLatestMovies} from "./services/movies.service";
+import {ALTS, IMAGES, TEXTS} from "./utils/contants"
+import {useDispatch, useSelector} from "react-redux";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const latestMoviesData = useSelector(state => state.latestMoviesData);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getLatestMovies());
+    }, []);
+
+    console.log(latestMoviesData)
+
+    return (
+            <div className="App">
+                <div className="App__title">
+                    <span>{TEXTS.APP_TITLE}</span>
+                    <img src={IMAGES.logo} alt={ALTS.LOGO_ALT}/>
+                </div>
+            </div>
+    );
 }
 
 export default App;
