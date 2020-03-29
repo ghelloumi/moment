@@ -9,7 +9,7 @@ const MoviesPage = (props) => {
                 <PageTools/>
             </div>
             <div className="movies__page__content">
-                <MoviesList {...props}/>
+                <MoviesList type={props.match.params.type}/>
             </div>
         </div>
     );

@@ -5,19 +5,19 @@ import {useDispatch, useSelector} from "react-redux";
 import MovieCard from "../molecules/MovieCard";
 import Loader from "../atoms/Loader";
 
-const MoviesList = (props) => {
+const MoviesList = ({type}) => {
     const {pending, moviesRes, error} = useSelector(state => state.moviesData);
     const [page, setPage] = useState(1)
     const [moviesResResults, setMoviesResResults] = useState([])
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getMovies(page, props.location.state.type))
-    }, [page]);
+        dispatch(getMovies(page, type))
+    }, [page, type]);
 
     useMemo(() => {
         if (moviesRes.results) {
-            setMoviesResResults([...moviesResResults, ...moviesRes.results])
+            setMoviesResResults([ ...(page > 1 ?moviesResResults:[]), ...moviesRes.results])
         }
     }, [moviesRes])
 

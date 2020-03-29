@@ -1,16 +1,14 @@
 import React from 'react';
-import {Route, Switch, BrowserRouter as Router} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import NotFound from "./components/organisms/NotFound";
 import MoviesPage from "./components/pages/MoviesPage";
 
-function Routes() {
+const Routes = () => {
     return (
-        <Router>
-            <Switch>
-                <Route path="/movies/:type" exact component={MoviesPage}/>
-                <Route path="*" component={NotFound}/>
-            </Switch>
-        </Router>
+        <Switch>
+            <Route path="/movies/:type" component={MoviesPage}/>
+            <Route path="*" component={NotFound}/>
+        </Switch>
     )
 }
 
