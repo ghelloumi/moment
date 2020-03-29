@@ -42,7 +42,7 @@ const MovieDetails = ({movieId}) => {
                         <span>{movieDetailsRes.status}: {movieDetailsRes.release_date}</span>
                         <span>{TEXTS.VOTE_AVERAGE}: {movieDetailsRes.vote_average}</span>
                         <div className="main__details__productionCountries">
-                            {movieDetailsRes.production_countries.map(e => (
+                            {movieDetailsRes.production_countries && movieDetailsRes.production_countries.map(e => (
                                 <Image key={e.iso_3166_1} alt={ALTS.PROD_COUNTRY_FLAG_ALT}
                                        src={formatFlagLink(e.iso_3166_1)}/>
                             ))}
@@ -53,7 +53,7 @@ const MovieDetails = ({movieId}) => {
                     <div>
                         <h5>{TEXTS.GENRES}</h5>
                         <p>
-                            {movieDetailsRes.genres.map((e,i) => (
+                            {movieDetailsRes.genres && movieDetailsRes.genres.map((e,i) => (
                                 <span key={i}>{e.name}, </span>
                             ))}
                         </p>
@@ -65,7 +65,7 @@ const MovieDetails = ({movieId}) => {
                     <div>
                         <h5>{TEXTS.PROD_COMPANIES}</h5>
                         <div>
-                            {movieDetailsRes.production_companies.map(e => (
+                            {movieDetailsRes.production_companies && movieDetailsRes.production_companies.map(e => (
                                 <Image key={e.id} src={formatImageLink(e.logo_path, transformations.ORIGINAL)}
                                        alt={ALTS.PROD_COMPANIE_LOGO}/>
                             ))}
