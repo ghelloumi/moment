@@ -9,8 +9,15 @@ const initialMoviesState = {
 
 const initialMovieDetailsState = {
     pending: false,
-    moviesRes: {},
+    movieDetailsRes: {},
     error: null
+}
+
+const initialMoviesSearchState = {
+    pending: false,
+    moviesSearchRes: {},
+    error: null,
+    query: ""
 }
 
 const moviesData = (state = initialMoviesState, action) => {
@@ -61,9 +68,35 @@ const movieDetailsData = (state = initialMovieDetailsState, action) => {
     }
 }
 
+const moviesSearchData = (state = initialMoviesSearchState, action) => {
+    switch (action.type) {
+        case ACTIONS.FETCH_MOVIE_SEARCH_PENDING:
+            return {
+                ...state,
+                pending: true
+            }
+        case ACTIONS.FETCH_MOVIE_SEARCH_SUCCESS:
+            return {
+                ...state,
+                pending: false,
+                moviesSearchRes: action.moviesSearchRes,
+                query: action.query
+            }
+        case ACTIONS.FETCH_MOVIE_SEARCH_ERROR:
+            return {
+                ...state,
+                pending: false,
+                error: action.error
+            }
+        default:
+            return state;
+    }
+}
+
 const reducers = combineReducers({
     moviesData,
-    movieDetailsData
+    movieDetailsData,
+    moviesSearchData
 })
 
 export default reducers

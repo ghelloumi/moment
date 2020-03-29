@@ -1,13 +1,27 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
+import {TEXTS} from "../../utils/contants";
+import {useDispatch} from "react-redux";
+import {getSearchResults} from "../../services/movies.service";
 
 const PageTools = () => {
-    useEffect(() => {
+    const [text, setText] = useState("")
+    const dispatch = useDispatch()
 
+    useEffect(() => {
+        dispatch(getSearchResults(1, text))
     })
+
+    const handleKeyPress = (e) => {
+        const key = e.keyCode || e.charCode
+        return (key === 8 || key === 46) ? setText(e.target.value) : null
+    }
 
     return (
         <div className="page__tools">
-            Page tools
+            <input placeholder={TEXTS.SEARCH} value={text}
+                   onChange={(e) => setText(e.target.value)}
+                   onKeyPress={handleKeyPress}
+            />
         </div>
     );
 }

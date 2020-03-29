@@ -7,6 +7,7 @@ import Loader from "../atoms/Loader";
 
 const MoviesList = ({type}) => {
     const {pending, moviesRes, error} = useSelector(state => state.moviesData);
+    const {pending: pendingSearch, moviesSearchRes, error: errorSearch, query} = useSelector(state => state.moviesSearchData);
     const [page, setPage] = useState(1)
     const [moviesResResults, setMoviesResResults] = useState([])
     const dispatch = useDispatch();
@@ -16,20 +17,23 @@ const MoviesList = ({type}) => {
     }, [page, type]);
 
     useMemo(() => {
-        if (moviesRes.results) {
-            setMoviesResResults([ ...(page > 1 ?moviesResResults:[]), ...moviesRes.results])
+        if (moviesSearchRes.results && moviesSearchRes.results.length) {
+            setMoviesResResults(moviesSearchRes.results)
+            setPage(1)
+        } else if (moviesRes.results) {
+            setMoviesResResults([...(page > 1 ? moviesResResults : []), ...moviesRes.results])
         }
-    }, [moviesRes])
+    }, [moviesRes, moviesSearchRes])
 
     const handleLoadMore = (page) => {
         setPage(page)
     }
 
-    if (pending && page === 1) {
+    if ((pending && page === 1) || pendingSearch) {
         return <Loader/>
     }
 
-    if (error) {
+    if (error || errorSearch) {
         return (
             <div className="movies__list error">
                 <span>Error Loading content: {error}</span>
@@ -44,12 +48,12 @@ const MoviesList = ({type}) => {
                     <MovieCard key={i} movie={movie}/>
                 ))}
             </div>
-            {pending && page > 1 ? <Loader/> :
+            {!query && (pending && page > 1 ? <Loader/> :
                 <div className="movies__list__loadMore">
                     <button onClick={() => handleLoadMore(page + 1)}>
                         {TEXTS.LOAD_MORE_BUTTON} {TEXTS.MOVIES}
                     </button>
-                </div>
+                </div>)
             }
         </>
     );

@@ -41,3 +41,25 @@ export const movieDetailsActions = {
         }
     }
 }
+
+// Movie Search Actions
+export const moviesSearchActions = {
+    fetchMoviesSearchPending: () => {
+        return {
+            type: ACTIONS.FETCH_MOVIE_SEARCH_PENDING
+        }
+    },
+    fetchMoviesSearchSuccess: (moviesSearchRes, query) => {
+        return {
+            type: ACTIONS.FETCH_MOVIE_SEARCH_SUCCESS,
+            moviesSearchRes,
+            query
+        }
+    },
+    fetchMoviesSearchError: (error) => {
+        return {
+            type: ACTIONS.FETCH_MOVIE_SEARCH_ERROR,
+            error
+        }
+    }
+}
