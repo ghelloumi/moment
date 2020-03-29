@@ -5,12 +5,16 @@ import {useDispatch, useSelector} from "react-redux";
 import MovieCard from "../molecules/MovieCard";
 import Loader from "../atoms/Loader";
 
-const MoviesList = ({type}) => {
+const MoviesList = ({type, loc}) => {
     const {pending, moviesRes, error} = useSelector(state => state.moviesData);
     const {pending: pendingSearch, moviesSearchRes, error: errorSearch, query} = useSelector(state => state.moviesSearchData);
     const [page, setPage] = useState(1)
     const [moviesResResults, setMoviesResResults] = useState([])
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        setPage(1)
+    }, [loc])
 
     useEffect(() => {
         dispatch(getMovies(page, type))
