@@ -15,7 +15,7 @@ const PopularMoviesList = () => {
 
     if (pending) {
         return (
-            <div className="popular__movies__list loading">
+            <div className="movies__list loading">
                 <Image src={IMAGES.loader} alt={ALTS.LOADING_ALT}/>
             </div>
         )
@@ -23,14 +23,14 @@ const PopularMoviesList = () => {
 
     if (error) {
         return (
-            <div className="popular__movies__list error">
+            <div className="movies__list error">
                 <span>Error Loading content: {error}</span>
             </div>
         )
     }
 
     return (
-        <div className="popular__movies__list">
+        <div className="movies__list">
             {latestMoviesRes.results && latestMoviesRes.results.map(movie => (
                 <MovieCard key={movie.id} movie={movie}/>
             ))}

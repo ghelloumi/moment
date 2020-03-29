@@ -53,6 +53,7 @@ body {
     &__pageContent {
       display: flex;
       padding: 0 1rem;
+      flex-direction: column;
     }
   }
 }
