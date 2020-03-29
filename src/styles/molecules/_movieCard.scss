@@ -6,6 +6,11 @@
   box-shadow: 0.5rem 0rem 1rem #bfbfbf;
   border-radius: 0.5rem;
   overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0.5rem 0rem 2rem #525252;
+  }
 
   > img {
     width: 14rem;
