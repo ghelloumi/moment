@@ -1,7 +1,7 @@
 import React from 'react';
-import Image from "./Image";
-import {ALTS} from "../utils/contants";
-import {IMAGE_PATH} from "../config/api.config";
+import Image from "../atoms/Image";
+import {ALTS} from "../../utils/contants";
+import {IMAGE_PATH} from "../../config/api.config";
 
 const MovieCard = ({movie}) => {
     return (

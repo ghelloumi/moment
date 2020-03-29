@@ -1,22 +1,22 @@
 import {ACTIONS} from "../utils/contants";
 
-// Latest Movies Actions
-export const fetchLatestMoviesPending = () => {
+// Movies Actions
+export const fetchMoviesPending = () => {
     return {
-        type: ACTIONS.FETCH_LATEST_MOVIES_PENDING
+        type: ACTIONS.FETCH_MOVIES_PENDING
     }
 }
 
-export const fetchLatestMoviesSuccess = (latestMoviesRes) => {
+export const fetchMoviesSuccess = (moviesRes) => {
     return {
-        type: ACTIONS.FETCH_LATEST_MOVIES_SUCCESS,
-        latestMoviesRes
+        type: ACTIONS.FETCH_MOVIES_SUCCESS,
+        moviesRes
     }
 }
 
-export const fetchLatestMoviesError = (error) => {
+export const fetchMoviesError = (error) => {
     return {
-        type: ACTIONS.FETCH_LATEST_MOVIES_ERROR,
+        type: ACTIONS.FETCH_MOVIES_ERROR,
         error
     }
 }

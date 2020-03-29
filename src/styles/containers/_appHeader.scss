@@ -1,0 +1,45 @@
+.app__header {
+  background: #f3f3f3;
+  padding: 1rem;
+  border-bottom: 0.1rem solid #bcbcbc;
+  font-weight: 600;
+  height: 1rem;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  align-items: center;
+
+  > span {
+    color: #F44336;
+    margin-left: 5rem;
+
+    > span {
+      color: #484848;
+      margin-left: 2rem;
+    }
+  }
+
+  > img {
+    height: 6rem;
+    position: absolute;
+    opacity: 0.6;
+    top: -1.05rem;
+    left: -1.1rem;
+    transform: rotate(-10deg);
+  }
+
+  > ul {
+    list-style: none;
+
+    > li {
+      > a {
+        text-decoration: none;
+        color: #607D8B;
+        background: #e2e2e2;
+        padding: 0.3rem 1rem;
+        border-radius: 1rem;
+        margin: 0 0.5rem;
+      }
+    }
+  }
+}

@@ -1,12 +1,12 @@
 import {headers, URI} from "../config/api.config";
 
-import {fetchLatestMoviesError, fetchLatestMoviesPending, fetchLatestMoviesSuccess} from '../redux/actions';
+import {fetchMoviesError, fetchMoviesPending, fetchMoviesSuccess} from '../redux/actions';
 
-export const getLatestMovies = () => (
+export const getMovies = (page, moviesPageType) => (
     async dispatch => {
-        dispatch(fetchLatestMoviesPending());
+        dispatch(fetchMoviesPending());
         try {
-            const res = await fetch(`${URI}/movie/popular?language=en_US`, {
+            const res = await fetch(`${URI}/movie/${moviesPageType}?page=${page}&language=en_US`, {
                 method: 'GET',
                 headers
             })
@@ -14,10 +14,10 @@ export const getLatestMovies = () => (
             if (resJson.error) {
                 throw(resJson.error);
             }
-            dispatch(fetchLatestMoviesSuccess(resJson))
+            dispatch(fetchMoviesSuccess(resJson))
             return resJson;
         } catch (e) {
-            dispatch(fetchLatestMoviesError(e));
+            dispatch(fetchMoviesError(e));
         }
     }
 )

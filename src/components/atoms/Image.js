@@ -1,5 +1,5 @@
 import React from 'react';
-import {IMAGES} from "../utils/contants";
+import {IMAGES} from "../../utils/contants";
 
 const Image = ({src, alt}) => {
     const onError = (e) => {

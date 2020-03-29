@@ -1,6 +1,8 @@
-@import "./popularMoviesList";
-@import "./pageTools";
-@import "./movieCard";
+@import "./containers/index.scss";
+@import "./atoms/index.scss";
+@import "./molecules/index.scss";
+@import "./organisms/index.scss";
+@import "./pages/index.scss";
 
 body {
   margin: 0;
@@ -12,48 +14,10 @@ body {
 
 .App {
   text-align: center;
+}
 
-  &__title {
-    background: #f3f3f3;
-    padding: 1rem;
-    border-bottom: 0.1rem solid #bcbcbc;
-    font-weight: 600;
-    height: 1rem;
-    overflow: hidden;
-    display: flex;
-    position: relative;
-    align-items: center;
-
-    span {
-      color: #F44336;
-      margin-left: 5rem;
-    }
-
-    img {
-      height: 6rem;
-      position: absolute;
-      opacity: 0.6;
-      top: -1.05rem;
-      left: -1.1rem;
-      transform: rotate(-10deg);
-    }
-  }
-
-  &__container {
-    &__pageName {
-      font-weight: 600;
-      font-size: 1.4rem;
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 0.2rem 0.5rem #d8d8d8;
-      color: #7d7d7d;
-      background: #f7f7f7;
-    }
-
-    &__pageContent {
-      display: flex;
-      padding: 0 1rem;
-      flex-direction: column;
-    }
-  }
+a[disabled] {
+  pointer-events: none !important;
+  color: #bdbdbd !important;
+  background: #e8e8e8 !important;
 }

@@ -1,26 +1,26 @@
 import {ACTIONS} from "../utils/contants";
 import {combineReducers} from "redux";
 
-const initialState = {
+const initialMoviesState = {
     pending: false,
-    latestMoviesRes: {},
+    moviesRes: {},
     error: null
 }
 
-const latestMoviesData = (state = initialState, action) => {
+const moviesData = (state = initialMoviesState, action) => {
     switch (action.type) {
-        case ACTIONS.FETCH_LATEST_MOVIES_PENDING:
+        case ACTIONS.FETCH_MOVIES_PENDING:
             return {
                 ...state,
                 pending: true
             }
-        case ACTIONS.FETCH_LATEST_MOVIES_SUCCESS:
+        case ACTIONS.FETCH_MOVIES_SUCCESS:
             return {
                 ...state,
                 pending: false,
-                latestMoviesRes: action.latestMoviesRes
+                moviesRes: action.moviesRes
             }
-        case ACTIONS.FETCH_LATEST_MOVIES_ERROR:
+        case ACTIONS.FETCH_MOVIES_ERROR:
             return {
                 ...state,
                 pending: false,
@@ -32,7 +32,7 @@ const latestMoviesData = (state = initialState, action) => {
 }
 
 const reducers = combineReducers({
-    latestMoviesData
+    moviesData
 })
 
 export default reducers
