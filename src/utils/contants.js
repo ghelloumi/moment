@@ -1,11 +1,17 @@
 import logo from "../assets/logo.png"
 import loader from "../assets/loader.gif"
 import imageNotFound from "../assets/imageNotFound.png"
+import close from "../assets/close.jpg"
+import age from "../assets/age.png"
+import imdb from "../assets/imdb.png"
 
 export const ACTIONS = {
     FETCH_MOVIES_PENDING: 'FETCH_MOVIES_PENDING',
     FETCH_MOVIES_SUCCESS: 'FETCH_MOVIES_SUCCESS',
-    FETCH_MOVIES_ERROR: 'FETCH_MOVIES_ERROR'
+    FETCH_MOVIES_ERROR: 'FETCH_MOVIES_ERROR',
+    FETCH_MOVIE_DETAILS_PENDING: 'FETCH_MOVIE_DETAILS_PENDING',
+    FETCH_MOVIE_DETAILS_SUCCESS: 'FETCH_MOVIE_DETAILS_SUCCESS',
+    FETCH_MOVIE_DETAILS_ERROR: 'FETCH_MOVIE_DETAILS_ERROR'
 }
 
 export const TEXTS = {
@@ -13,15 +19,24 @@ export const TEXTS = {
     LOAD_MORE_BUTTON: "Load more",
     MOVIES: "movies",
     LATEST: "Latest",
-    TOP_RATED: "Top rated"
+    TOP_RATED: "Top rated",
+    GENRES: "Genres",
+    OVERVIEW: "Overview",
+    PROD_COMPANIES: "Production Companies",
+    VOTE_AVERAGE: "Vote Average"
 }
 
 export const ALTS = {
     LOGO_ALT: "Logo picture for the app",
     LOADING_ALT: "Loader animation",
-    MOVIE_CARD_ALT: "Movie Poster"
+    MOVIE_CARD_ALT: "Movie Poster",
+    CLOSE_MODEL_ALT: "Close the model button",
+    PROD_COUNTRY_FLAG_ALT: "Production Country Flag",
+    PROD_COMPANIE_LOGO: "Production company logo",
+    AGE_ADULT: "Adult age restriction",
+    IMDB_ICON_ALT: "Imdb link"
 }
 
 export const IMAGES = {
-    logo, loader, imageNotFound
+    logo, loader, imageNotFound, close, age, imdb
 }

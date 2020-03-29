@@ -15,10 +15,6 @@ const MoviesList = (props) => {
         dispatch(getMovies(page, props.location.state.type))
     }, [page]);
 
-    useEffect(() => {
-        console.log('oook')
-    }, [])
-
     useMemo(() => {
         if (moviesRes.results) {
             setMoviesResResults([...moviesResResults, ...moviesRes.results])
@@ -44,8 +40,8 @@ const MoviesList = (props) => {
     return (
         <>
             <div className="movies__list">
-                {moviesResResults && moviesResResults.map(movie => (
-                    <MovieCard key={movie.id} movie={movie}/>
+                {moviesResResults && moviesResResults.map((movie, i) => (
+                    <MovieCard key={i} movie={movie}/>
                 ))}
             </div>
             {pending && page > 1 ? <Loader/> :

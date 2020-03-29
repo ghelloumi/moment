@@ -1,17 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Image from "../atoms/Image";
-import {ALTS} from "../../utils/contants";
-import {IMAGE_PATH} from "../../config/api.config";
+import {ALTS, IMAGES} from "../../utils/contants";
+import Modal from "../atoms/Modal";
+import MovieDetails from "../organisms/MovieDetails";
+import {formatImageLink} from "../../utils/functions";
+import {transformations} from "../../config/api.config";
 
 const MovieCard = ({movie}) => {
+    const [modal, setModal] = useState(false)
+
     return (
-        <div className="movie__card">
-            <Image alt={ALTS.MOVIE_CARD_ALT} src={IMAGE_PATH + movie.poster_path}/>
+        <div className="movie__card" onClick={() => setModal(true)}>
+            <Image alt={ALTS.MOVIE_CARD_ALT} src={formatImageLink(movie.poster_path, transformations.MOVIES_POSTER)}/>
             <div className="movie__card__info">
-                <span>{movie.vote_average}</span>
+                <span>
+                    {movie.vote_average}
+                    {movie.adult && <Image alt={ALTS.AGE_ADULT} src={IMAGES.age}/>}
+                </span>
                 <span>{movie.original_title}</span>
                 <span>{movie.release_date}</span>
             </div>
+            {modal && <Modal close={() => setModal(false)}>
+                <span>{movie.original_title}</span>
+                <MovieDetails movieId={movie.id}/>
+            </Modal>}
         </div>
     );
 }
