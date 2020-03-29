@@ -1,0 +1,22 @@
+.popular__movies__list {
+  margin-left: 1rem;
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+
+  &.loading, &.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.loading  > img {
+    height: 2rem;
+  }
+
+  &.error {
+    color: #f33030;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+}

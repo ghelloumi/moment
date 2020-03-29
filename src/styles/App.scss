@@ -1,3 +1,7 @@
+@import "./popularMoviesList";
+@import "./pageTools";
+@import "./movieCard";
+
 body {
   margin: 0;
   font-family: 'Baloo Thambi 2', cursive;
@@ -32,6 +36,23 @@ body {
       top: -1.05rem;
       left: -1.1rem;
       transform: rotate(-10deg);
+    }
+  }
+
+  &__container {
+    &__pageName {
+      font-weight: 600;
+      font-size: 1.4rem;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0.2rem 0.5rem #d8d8d8;
+      color: #7d7d7d;
+      background: #f7f7f7;
+    }
+
+    &__pageContent {
+      display: flex;
+      padding: 0 1rem;
     }
   }
 }

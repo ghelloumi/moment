@@ -1,27 +1,24 @@
-import React, {useEffect} from 'react';
-import './styles/App.scss';
-import {getLatestMovies} from "./services/movies.service";
+import React from 'react';
 import {ALTS, IMAGES, TEXTS} from "./utils/contants"
-import {useDispatch, useSelector} from "react-redux";
+import PopularMoviesList from "./components/PopularMoviesList";
+import './styles/App.scss';
+import PageTools from "./components/PageTools";
 
-
-function App() {
-    const latestMoviesData = useSelector(state => state.latestMoviesData);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getLatestMovies());
-    }, []);
-
-    console.log(latestMoviesData)
-
+const App = () => {
     return (
-            <div className="App">
-                <div className="App__title">
-                    <span>{TEXTS.APP_TITLE}</span>
-                    <img src={IMAGES.logo} alt={ALTS.LOGO_ALT}/>
+        <div className="App">
+            <div className="App__title">
+                <span>{TEXTS.APP_TITLE}</span>
+                <img src={IMAGES.logo} alt={ALTS.LOGO_ALT}/>
+            </div>
+            <div className="App__container">
+                <div className="App__container__pageName">Page Name</div>
+                <div className="App__container__pageContent">
+                    <PageTools/>
+                    <PopularMoviesList/>
                 </div>
             </div>
+        </div>
     );
 }
 
