@@ -1,13 +1,13 @@
 .app__header {
-  background: #f3f3f3;
-  padding: 1rem;
-  border-bottom: 0.1rem solid #bcbcbc;
+  background: #fbfbfb;
   font-weight: 600;
-  height: 1rem;
   overflow: hidden;
   display: flex;
-  position: relative;
+  position: fixed;
   align-items: center;
+  width: 100%;
+  top: 0;
+  box-shadow: 0rem 0rem 1rem #c3c3c3;
 
   > span {
     color: #F44336;
@@ -30,15 +30,19 @@
 
   > ul {
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
 
     > li {
+      background: #e2e2e2;
+      padding: 0.3rem 1rem;
+      border-radius: 1rem;
+      margin: 0 0.5rem;
+      margin-top: 0.1rem;
+
       > a {
         text-decoration: none;
         color: #607D8B;
-        background: #e2e2e2;
-        padding: 0.3rem 1rem;
-        border-radius: 1rem;
-        margin: 0 0.5rem;
       }
     }
   }

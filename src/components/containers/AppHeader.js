@@ -9,10 +9,8 @@ const AppHeader = () => {
             <span>{TEXTS.APP_TITLE} </span>
             <Image src={IMAGES.logo} alt={ALTS.LOGO_ALT}/>
             <ul>
-                <li>
-                    <Link to="/movies/popular">{TEXTS.LATEST} {TEXTS.MOVIES}</Link>
-                    <Link to="/movies/top_rated">{TEXTS.TOP_RATED} {TEXTS.MOVIES}</Link>
-                </li>
+                <li><Link to="/movies/popular">{TEXTS.LATEST} {TEXTS.MOVIES}</Link></li>
+                <li><Link to="/movies/top_rated">{TEXTS.TOP_RATED} {TEXTS.MOVIES}</Link></li>
             </ul>
         </div>
     );
