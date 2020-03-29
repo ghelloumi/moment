@@ -5,13 +5,14 @@
   display: flex;
   position: fixed;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   top: 0;
   box-shadow: 0rem 0rem 1rem #c3c3c3;
 
   > span {
     color: #F44336;
     margin-left: 5rem;
+    line-height: 1rem;
 
     > span {
       color: #484848;
@@ -23,8 +24,7 @@
     height: 6rem;
     position: absolute;
     opacity: 0.6;
-    top: -1.05rem;
-    left: -1.1rem;
+    left: -1.4rem;
     transform: rotate(-10deg);
   }
 
@@ -35,10 +35,11 @@
 
     > li {
       background: #e2e2e2;
-      padding: 0.3rem 1rem;
+      padding: 0.3rem 0rem;
       border-radius: 1rem;
       margin: 0 0.5rem;
       margin-top: 0.1rem;
+      width: 9rem;
 
       > a {
         text-decoration: none;
