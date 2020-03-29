@@ -11,6 +11,6 @@ export default function configureStore(preloadedStore) {
     return createStore(
         reducers,
         preloadedStore,
-        applyMiddleware(thunk, ),
+        applyMiddleware(thunk, logger),
     )
 }
