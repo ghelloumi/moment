@@ -66,7 +66,7 @@ const MovieDetails = ({movieId}) => {
                         <h5>{TEXTS.PROD_COMPANIES}</h5>
                         <div>
                             {movieDetailsRes.production_companies && movieDetailsRes.production_companies.map(e => (
-                                <Image key={e.id} src={formatImageLink(e.logo_path, transformations.ORIGINAL)}
+                                <Image key={e.id} src={formatImageLink(e.logo_path, transformations.PROD_COMPANIES)}
                                        alt={ALTS.PROD_COMPANIE_LOGO}/>
                             ))}
                         </div>

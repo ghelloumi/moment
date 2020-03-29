@@ -5,6 +5,7 @@ export const setImagePath = (transformation) =>  (`https://image.tmdb.org/t/p/${
 
 export const transformations = {
     MOVIES_POSTER: 'w220_and_h330_face',
+    PROD_COMPANIES: 'w200',
     ORIGINAL: 'original'
 }
 
